@@ -7,7 +7,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Sina RashidiAzar</title>
 </head>
-<body>
+<body class="bg-gradient-to-r from-gray-100 to-gray-200">
     <header>
         {{-- Header Section --}}
         @include('layouts.header')
