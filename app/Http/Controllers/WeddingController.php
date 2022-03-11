@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Wedding;
 
 class WeddingController extends Controller
 {
@@ -13,7 +14,10 @@ class WeddingController extends Controller
      */
     public function index()
     {
-        return view('wedding.index');
+        $wedding_date=Wedding::all();
+        return view('wedding.index',[
+            'wedding_date' => $wedding_date
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class WeddingController extends Controller
      */
     public function create()
     {
-        //
+        return View('wedding.create');
     }
 
     /**
@@ -34,7 +38,10 @@ class WeddingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $wedding=new Wedding();
+       $wedding->wedding_date=$request->input('date');
+       $wedding->save();
+       return redirect('/wedding');
     }
 
     /**

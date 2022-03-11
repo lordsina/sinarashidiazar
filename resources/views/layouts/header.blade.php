@@ -1,3 +1,1 @@
-<h5>
-    Header
-</h5>
+<h5 class="text-center">Header</h5>
