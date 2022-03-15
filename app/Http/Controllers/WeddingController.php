@@ -63,7 +63,8 @@ class WeddingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $wedding=Wedding::find($id);
+        return view('wedding.edit')->with('wedding',$wedding);
     }
 
     /**
@@ -75,7 +76,11 @@ class WeddingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $wedding=Wedding::where('id',$id)->update([
+            'wedding_date' =>$request->input('date')
+        ]);
+        return redirect('/wedding');
+
     }
 
     /**
@@ -84,8 +89,9 @@ class WeddingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Wedding $wedding)
     {
-        //
+        $wedding->delete();
+        return redirect('/wedding');
     }
 }
