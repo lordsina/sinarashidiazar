@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('weddings', function (Blueprint $table) {
+        Schema::create('wedding_dates', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('wedding_date');
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('weddings');
+        Schema::dropIfExists('wedding_dates');
     }
 };

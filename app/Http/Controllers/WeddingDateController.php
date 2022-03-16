@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WeddingDate;
 use Illuminate\Http\Request;
-use App\Models\Wedding;
 
-class WeddingController extends Controller
+class WeddingDateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class WeddingController extends Controller
      */
     public function index()
     {
-        $wedding_date=Wedding::all();
-        return view('wedding.index',[
-            'wedding_date' => $wedding_date
+        $wedding_dates=WeddingDate::all();
+        return view('WeddingDate.index',[
+            'wedding_dates' => $wedding_dates
         ]);
     }
 
@@ -27,7 +27,7 @@ class WeddingController extends Controller
      */
     public function create()
     {
-        return View('wedding.create');
+        return View('WeddingDate.create');
     }
 
     /**
@@ -38,10 +38,10 @@ class WeddingController extends Controller
      */
     public function store(Request $request)
     {
-       $wedding=new Wedding();
-       $wedding->wedding_date=$request->input('date');
-       $wedding->save();
-       return redirect('/wedding');
+        $wedding_dates=new WeddingDate();
+        $wedding_dates->date=$request->input('date');
+        $wedding_dates->save();
+        return redirect('/date');
     }
 
     /**
@@ -63,8 +63,8 @@ class WeddingController extends Controller
      */
     public function edit($id)
     {
-        $wedding=Wedding::find($id);
-        return view('wedding.edit')->with('wedding',$wedding);
+        $wedding_dates=WeddingDate::find($id);
+        return view('WeddingDate.edit')->with('wedding_dates',$wedding_dates);
     }
 
     /**
@@ -76,11 +76,10 @@ class WeddingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $wedding=Wedding::where('id',$id)->update([
-            'wedding_date' =>$request->input('date')
+        $wedding_dates=WeddingDate::where('id',$id)->update([
+            'date' =>$request->input('date')
         ]);
-        return redirect('/wedding');
-
+        return redirect('/date');
     }
 
     /**
@@ -89,9 +88,10 @@ class WeddingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Wedding $wedding)
+    public function destroy($id) 
     {
-        $wedding->delete();
-        return redirect('/wedding');
+        $weddingdate=WeddingDate::find($id);
+        $weddingdate->delete();
+        return redirect('/date');
     }
 }
