@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\WeddingDateController;
+use App\Http\Controllers\WeddingHallController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/date',WeddingDateController::class);
+Route::resource('/hall',WeddingHallController::class);
