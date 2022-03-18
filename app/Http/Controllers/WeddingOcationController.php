@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WeddingDate;
 use Illuminate\Http\Request;
 
-class WeddingDateController extends Controller
+class WeddingOcationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +13,7 @@ class WeddingDateController extends Controller
      */
     public function index()
     {
-        $wedding_dates=WeddingDate::all();
-        return view('WeddingDate.index',[
-            'wedding_dates' => $wedding_dates
-        ]);
+        //
     }
 
     /**
@@ -27,7 +23,7 @@ class WeddingDateController extends Controller
      */
     public function create()
     {
-        return View('WeddingDate.create');
+        //
     }
 
     /**
@@ -38,10 +34,7 @@ class WeddingDateController extends Controller
      */
     public function store(Request $request)
     {
-        $wedding_dates=new WeddingDate();
-        $wedding_dates->date=$request->input('date');
-        $wedding_dates->save();
-        return redirect('/date');
+        //
     }
 
     /**
@@ -52,8 +45,7 @@ class WeddingDateController extends Controller
      */
     public function show($id)
     {
-        $wedding_dates=WeddingDate::find($id);
-        return view('WeddingDate.show')->with('wedding_dates',$wedding_dates);;
+        //
     }
 
     /**
@@ -64,8 +56,7 @@ class WeddingDateController extends Controller
      */
     public function edit($id)
     {
-        $wedding_dates=WeddingDate::find($id);
-        return view('WeddingDate.edit')->with('wedding_dates',$wedding_dates);
+        //
     }
 
     /**
@@ -77,10 +68,7 @@ class WeddingDateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $wedding_dates=WeddingDate::where('id',$id)->update([
-            'date' =>$request->input('date')
-        ]);
-        return redirect('/date');
+        //
     }
 
     /**
@@ -89,10 +77,8 @@ class WeddingDateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) 
+    public function destroy($id)
     {
-        $weddingdate=WeddingDate::find($id);
-        $weddingdate->delete();
-        return redirect('/date');
+        //
     }
 }

@@ -4,16 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class WeddingDate extends Model
+class WeddingOcation extends Model
 {
     use HasFactory;
-    protected $table='wedding_dates';
+    protected $table='wedding_ocations';
     protected $primaryKey='id';
     protected $timeStamps=true;
-
-    public function weddingocation(){
-        return $this->HasMany(WeddingOcation::class);
+    public function weddingdate(){
+        return $this->belongsTo(WeddingDate::class);
     }
+
 }
