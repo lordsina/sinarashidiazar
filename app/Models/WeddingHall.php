@@ -11,4 +11,8 @@ class WeddingHall extends Model
     protected $table='wedding_halls';
     protected $primaryKey='id';
     protected $timeStamps=true;
+
+    public function weddingocation(){
+        return $this->HasMany(WeddingOcation::class);
+    }
 }

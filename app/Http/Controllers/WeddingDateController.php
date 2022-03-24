@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\WeddingDate;
+use App\Models\WeddingHall;
 use Illuminate\Http\Request;
 
 class WeddingDateController extends Controller
@@ -53,7 +54,12 @@ class WeddingDateController extends Controller
     public function show($id)
     {
         $wedding_dates=WeddingDate::find($id);
-        return view('WeddingDate.show')->with('wedding_dates',$wedding_dates);;
+        $wedding_hall=WeddingHall::all();
+        return view('WeddingDate.show',[
+            'wedding_dates'=>$wedding_dates,
+            'wedding_hall'=>$wedding_hall
+
+        ]);
     }
 
     /**

@@ -15,4 +15,8 @@ class WeddingOcation extends Model
         return $this->belongsTo(WeddingDate::class);
     }
 
+    public function weddinghall(){
+        return $this->belongsTo(WeddingHall::class);
+    }
+
 }
