@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\WeddingDate;
 use App\Models\WeddingHall;
+use App\Models\WeddingOcation;
 use Illuminate\Http\Request;
 
 class WeddingDateController extends Controller
@@ -16,8 +17,12 @@ class WeddingDateController extends Controller
     public function index()
     {
         $wedding_dates=WeddingDate::all();
+        $wedding_halls=WeddingHall::all();
+        $wedding_ocations=WeddingOcation::all();
         return view('WeddingDate.index',[
-            'wedding_dates' => $wedding_dates
+            'wedding_dates' => $wedding_dates,
+            'wedding_halls'=>$wedding_halls,
+            'wedding_ocations'=>$wedding_ocations
         ]);
     }
 

@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/date',WeddingDateController::class);
 Route::resource('/hall',WeddingHallController::class);
+Route::resource('/ocation',WeddingHallController::class);
