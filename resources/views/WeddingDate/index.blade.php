@@ -4,6 +4,33 @@
 
 <div class="container bg-cyan-600/[.2] mx-auto  text-center  py-10 rounded-lg">
 
+    <div class="grid gap-4 grid-cols-3 grid-rows-3 mt-5 mx-5">
+        <div class="flex-1 ">
+            <a href="/date">
+                <div class="bg-lime-600 hover:bg-yellow-500 p-5 rounded-lg">
+                    Wedding Dates
+                </div>
+            </a>
+        </div>
+
+        <div class="flex-1 ">
+            <a href="/ocation">
+                <div class="bg-orange-700  hover:bg-yellow-500 p-5 rounded-lg">
+                    Wedding Ocations
+                </div>
+            </a>
+        </div>
+
+        <div class="flex-1">
+            <a href="/hall">
+                <div class="bg-teal-600 hover:bg-yellow-500 p-5 rounded-lg">
+                    Wedding Halls
+                </div>
+            </a>
+        </div>
+
+    </div> 
+
     <div class="m-auto w-4/5 py-24">
         <div class="text-center">
             <h1 class="text-5xl uppercase bold">
@@ -18,7 +45,7 @@
 
     <div class="flex justify-center">
         @foreach ( $wedding_dates as $wedding_date )
-            <div class="basis-1/4  m-5 text-center rounded-lg bg-indigo-50/20 h-40">
+            <div class="basis-1/3  m-4 text-center rounded-lg bg-indigo-50/20 h-60">
 
                 <p class="hover:text-blue-500 text-3xl text-yellow-500 "><a href="/date/{{$wedding_date->id}}">{{ $wedding_date->date }}</a></p>
 

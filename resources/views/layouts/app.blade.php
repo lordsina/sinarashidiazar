@@ -8,6 +8,7 @@
     <title>Sina RashidiAzar</title>
 </head>
 <body class="bg-slate-800 text-neutral-50">
+    @include('layouts.nav')
     <header>
         {{-- Header Section --}}
         @include('layouts.header')
