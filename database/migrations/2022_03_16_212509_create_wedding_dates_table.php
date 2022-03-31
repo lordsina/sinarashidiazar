@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        
         Schema::create('wedding_dates', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');

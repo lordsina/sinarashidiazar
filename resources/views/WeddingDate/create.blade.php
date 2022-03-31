@@ -20,5 +20,16 @@
     </form>
 </div>
 
+    <div class="w-4/8 m-auto text-center">
+        @if ($errors->any())
+        @foreach ($errors->all() as $error )
+            <li class="text-red-500 list-none">
+                {{ $error }}
+            </li>
+        @endforeach
+        @endif
+    </div>
+
+
 <hr class="mt-4 mb-8">
 @endsection

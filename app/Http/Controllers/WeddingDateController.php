@@ -44,6 +44,9 @@ class WeddingDateController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'date'=>'required|unique:wedding_dates,date'
+        ]);
         $wedding_dates=new WeddingDate();
         $wedding_dates->date=$request->input('date');
         $wedding_dates->save();
