@@ -13,7 +13,7 @@ class WeddingOcationController extends Controller
      */
     public function index()
     {
-        //
+        return view('WeddingOcation.index');
     }
 
     /**
