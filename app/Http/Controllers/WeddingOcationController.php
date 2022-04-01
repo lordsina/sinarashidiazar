@@ -45,7 +45,7 @@ class WeddingOcationController extends Controller
      */
     public function show($id)
     {
-        //
+        return $id;
     }
 
     /**

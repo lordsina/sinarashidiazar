@@ -54,20 +54,26 @@
                         @if ($ocation['wedding_date_id']==$wedding_date->id)
                             @foreach ($wedding_halls as $hall )
                                 @if ($ocation['wedding_hall_id']==$hall->id)
-                                <li>{{ $hall['name'] }}</li>
+                                <li class="hover:text-red-500"><a href="/ocation/{{ $ocation->id }}">{{ $hall['name'] }}</a></li>
                                 @endif
                             @endforeach  
                         @endif
                     @endforeach
                 </ul>
 
-                <div>
-                    <a class="text-green-500" href="date/{{ $wedding_date->id }}/edit">Edit &rarr;</a>
-                    <form action="/date/{{$wedding_date->id }}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button class="text-red-500" type="submit">Delete &rarr;</button>
-                    </form>
+                <div class="grid gap-4 grid-cols-2 grid-rows-2 mt-5 mx-5 ">
+                    <div class="flex-1 ">
+                        <a class="text-green-500" href="date/{{ $wedding_date->id }}/edit">Edit &rarr;</a>
+                    </div>
+                    <div class="flex-1 ">
+                        <form action="/date/{{$wedding_date->id }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="text-red-500" type="submit">Delete &rarr;</button>
+                        </form>
+                    </div>
+                    
+
                 </div>
 
             </div>

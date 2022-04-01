@@ -3,6 +3,7 @@
 use App\Http\Controllers\RootController;
 use App\Http\Controllers\WeddingDateController;
 use App\Http\Controllers\WeddingHallController;
+use App\Http\Controllers\WeddingOcationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/date',WeddingDateController::class);
 Route::resource('/hall',WeddingHallController::class);
-Route::resource('/ocation',WeddingHallController::class);
+Route::resource('/ocation',WeddingOcationController::class);
 Route::resource('/',RootController::class);
