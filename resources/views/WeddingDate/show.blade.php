@@ -11,10 +11,6 @@
         </div>
     </div>
 
-    <div class="pt-10 m-auto text-center p-10">
-        <a class="border-b-2 pb-2 border-dotted italic text-gray-500" href="">Add New</a>
-      </div>
-    
     <div class="m-auto w-4/5 py-24">
         <p class="text-2xl">  {{ $wedding_dates['date']}}</p>
         <p>ID : {{ $wedding_dates->id}}</p>
@@ -36,8 +32,20 @@
                 
             @endif
         @endforeach
-                <div class="basis-1/3  m-4 text-center rounded-lg bg-indigo-50/20 h-60">
-                    <a href=""><svg class="fa-solid fa-plus text-5xl mx-auto"></svg></a>
+                <div class="basis-1/3  m-4 text-center rounded-lg bg-indigo-50/20 h-60 align-middle">
+
+                    <form action="/date" method="post">
+                        @csrf
+                        <input type="hidden" name="hall_id" value="{{ $wedding_dates->id}}">
+                        <label for="hall" class="block mb-2 text-sm font-medium text-white	">اضافه کردن باغ جدید</label>
+                        <select id="hall" name="hall" class=" w-40 m-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @foreach ($wedding_hall as $hall )
+                                <option value="{{ $hall->id }}">{{ $hall['name'] }}</option>
+                            @endforeach
+                        </select>
+                        <button><svg class="fa-solid fa-plus text-5xl text-green-500 "></svg></button>
+                    </form>
+                    
                 </div>
             </div>
 

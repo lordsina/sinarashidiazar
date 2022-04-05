@@ -44,6 +44,16 @@ class WeddingDateController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->input('hall_id')){
+
+            $wedding_ocations=new WeddingOcation();
+            $wedding_ocations->wedding_date_id=$request->input('hall_id');
+            $wedding_ocations->wedding_hall_id=$request->input('hall');
+            $wedding_ocations->save();
+            return redirect('/date/'.$request->input('hall_id'));
+
+        }else{
+
         $request->validate([
             'date'=>'required|unique:wedding_dates,date'
         ]);
@@ -51,6 +61,10 @@ class WeddingDateController extends Controller
         $wedding_dates->date=$request->input('date');
         $wedding_dates->save();
         return redirect('/date');
+
+        }
+
+        
     }
 
     /**
