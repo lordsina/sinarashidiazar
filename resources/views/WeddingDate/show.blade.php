@@ -36,6 +36,9 @@
                 
             @endif
         @endforeach
+                <div class="basis-1/3  m-4 text-center rounded-lg bg-indigo-50/20 h-60">
+                    <a href=""><svg class="fa-solid fa-plus text-5xl mx-auto"></svg></a>
+                </div>
             </div>
 
         

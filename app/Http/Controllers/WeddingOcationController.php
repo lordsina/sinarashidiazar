@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class WeddingOcationController extends Controller
@@ -45,7 +46,14 @@ class WeddingOcationController extends Controller
      */
     public function show($id)
     {
-        return $id;
+        $Customers=Customer::all();
+        return view('WeddingOcation.show');
+
+        //$Customers=Customer::all();
+        // return view('WeddingOcaion.show',[
+        //     'wedding_ocation_id' => $id//,
+        //     //'Customers'=>$Customers
+        // ]);
     }
 
     /**
