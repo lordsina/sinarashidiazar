@@ -6,6 +6,8 @@ use App\Models\WeddingDate;
 use App\Models\WeddingHall;
 use App\Models\WeddingOcation;
 use Illuminate\Http\Request;
+use App\Rules\HallUniqe;
+use Illuminate\Support\Facades\DB;
 
 class WeddingDateController extends Controller
 {
@@ -44,13 +46,21 @@ class WeddingDateController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->input('hall_id')){
-
+        if($request->input('date_id')){
+            // $wedding_hall_ids=DB::table('wedding_ocations')->where('wedding_date_id',$request->input('date_id'))->pluck('wedding_hall_id');
+            // foreach($wedding_hall_ids as $wedding_hall_id){
+            //     if($wedding_hall_id==$request->input('hall_id')){
+            //         return 'no';
+            //     }
+            // }
+             $request->validate([
+                 'date_id'=>new HallUniqe($request->input('hall_id'))
+             ]);
             $wedding_ocations=new WeddingOcation();
-            $wedding_ocations->wedding_date_id=$request->input('hall_id');
-            $wedding_ocations->wedding_hall_id=$request->input('hall');
+            $wedding_ocations->wedding_date_id=$request->input('date_id');
+            $wedding_ocations->wedding_hall_id=$request->input('hall_id');
             $wedding_ocations->save();
-            return redirect('/date/'.$request->input('hall_id'));
+            return redirect('/date/'.$request->input('date_id'));
 
         }else{
 

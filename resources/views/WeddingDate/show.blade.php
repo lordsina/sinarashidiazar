@@ -2,6 +2,15 @@
 
 @section('content')
 <div class="container bg-cyan-600/[.2] mx-auto  text-center  py-10 rounded-lg">
+    <div>
+        @if ($errors->any())
+        <div class="w-4/8 m-auto text-center">
+            @foreach ( $errors->all() as $error )
+            <li class="text-red-500 list-none">{{ $error}}</li>
+            @endforeach
+        </div>  
+        @endif
+    </div>
 
     <div class="m-auto w-4/5 py-24">
         <div class="text-center">
@@ -36,9 +45,9 @@
 
                     <form action="/date" method="post">
                         @csrf
-                        <input type="hidden" name="hall_id" value="{{ $wedding_dates->id}}">
+                        <input type="hidden" name="date_id" value="{{ $wedding_dates->id}}">
                         <label for="hall" class="block mb-2 text-sm font-medium text-white	">اضافه کردن باغ جدید</label>
-                        <select id="hall" name="hall" class=" w-40 m-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select id="hall" name="hall_id" class=" w-40 m-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             @foreach ($wedding_hall as $hall )
                                 <option value="{{ $hall->id }}">{{ $hall['name'] }}</option>
                             @endforeach
